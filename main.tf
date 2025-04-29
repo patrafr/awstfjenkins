@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
-      version = "5.96.0"
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
     }
   }
 }
@@ -10,13 +10,15 @@ terraform {
 provider "aws" {
   region = "us-east-1"
   # Configuration options
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
-resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-test-bucket"
+resource "aws_instance" "public_instance" {
+  ami           = var.ami
+  instance_type = var.instance_type
 
   tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
+    Name = var.name_tag,
   }
 }
