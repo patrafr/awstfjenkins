@@ -16,7 +16,7 @@ variable "ami" {
 variable "instance_type" {
   description = "Instance type"
   type        = string
-  default     = "t3a.small"
+  default     = "t3a.medium"
 }
 variable "name_tag" {
   description = "Name tag for the instance"
