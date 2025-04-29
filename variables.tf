@@ -18,3 +18,8 @@ variable "instance_type" {
   type        = string
   default     = "t3a.small"
 }
+variable "name_tag" {
+  description = "Name tag for the instance"
+  type        = string
+  default     = "jenkins"
+}
